@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cen-alum-frontend/static/css/main.a617e044.chunk.css",
+    "main.js": "/cen-alum-frontend/static/js/main.1a803221.chunk.js",
+    "main.js.map": "/cen-alum-frontend/static/js/main.1a803221.chunk.js.map",
+    "runtime-main.js": "/cen-alum-frontend/static/js/runtime-main.e650ffbd.js",
+    "runtime-main.js.map": "/cen-alum-frontend/static/js/runtime-main.e650ffbd.js.map",
+    "static/js/2.6b999c63.chunk.js": "/cen-alum-frontend/static/js/2.6b999c63.chunk.js",
+    "static/js/2.6b999c63.chunk.js.map": "/cen-alum-frontend/static/js/2.6b999c63.chunk.js.map",
+    "static/js/3.6b930a6b.chunk.js": "/cen-alum-frontend/static/js/3.6b930a6b.chunk.js",
+    "static/js/3.6b930a6b.chunk.js.map": "/cen-alum-frontend/static/js/3.6b930a6b.chunk.js.map",
+    "index.html": "/cen-alum-frontend/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/cen-alum-frontend/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.6b999c63.chunk.js.LICENSE.txt": "/cen-alum-frontend/static/js/2.6b999c63.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/cen-alum-frontend/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e650ffbd.js",
+    "static/js/2.6b999c63.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.1a803221.chunk.js"
+  ]
+}
