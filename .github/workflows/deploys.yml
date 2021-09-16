@@ -1,0 +1,30 @@
+name: CI_CD
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+  
+jobs:
+  ci_to_master:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 14
+    - uses: wagoid/commitlint-github-action@v4
+    - name: install Packages
+      run: npm ci
+    - name: testing
+      run: npm run test
+    - name: Build
+      run: npm run build
+    - name: deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+        publish_dir: ./build
