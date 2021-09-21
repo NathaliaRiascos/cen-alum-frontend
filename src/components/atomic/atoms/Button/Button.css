@@ -1,0 +1,40 @@
+.button {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 14px 34px;
+    transition: all 0.5s ease;
+}
+
+.type-primary {
+    background-color: var(--colors-primary);
+    color: var(--colors-white);
+}
+
+.type-primary:hover {
+    background-color: var(--colors-brand-medium-blue);
+}
+
+.type-secondary {
+    background-color: transparent;
+    border: 1.5px solid var(--colors-primary);
+    color: var(--colors-primary);
+}
+
+.type-secondary:hover {
+    color: var(--colors-brand-medium-blue);
+    border: 1.5px solid var(--colors-brand-medium-blue);
+}
+
+.type-tertiary {
+    background-color: var(--transparent);
+    padding: var(--spacing-0);
+    border-bottom: 1px solid var(--colors-primary);
+    color: var(--colors-primary);
+    border-radius: var(--border-radius-none);
+}
+
+.type-tertiary:hover {
+    color: var(--colors-brand-medium-blue);
+    border-bottom: 1px solid  var(--colors-brand-medium-blue);
+}
