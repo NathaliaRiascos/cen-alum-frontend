@@ -1,4 +1,6 @@
 .button {
+    display: inline-flex;
+    align-items: center;
     border: 1px solid transparent;
     border-radius: 10px;
     cursor: pointer;
@@ -8,7 +10,7 @@
 
 .type-primary {
     background-color: var(--colors-primary);
-    color: var(--colors-white);
+    color: var(--colors-text-light);
 }
 
 .type-primary:hover {
@@ -37,4 +39,16 @@
 .type-tertiary:hover {
     color: var(--colors-brand-medium-blue);
     border-bottom: 1px solid  var(--colors-brand-medium-blue);
+}
+
+.type-fourth {
+    background-color: var(--transparent);
+}
+
+.position-icon-left {
+    flex-direction: row-reverse;
+}
+
+.position-icon-rigth {
+    flex-direction: row;
 }

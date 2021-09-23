@@ -13,3 +13,6 @@ Secondary.storyName = 'Secondary'
 
 export const Tertiary = () => <Button type='tertiary'>Secondary</Button>
 Tertiary.storyName = 'Tertiary'
+
+export const Fourth = () => <Button type='fourth'>Fourth</Button>
+Fourth.storyName = 'Fourth'

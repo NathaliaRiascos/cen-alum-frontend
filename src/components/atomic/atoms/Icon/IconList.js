@@ -8,4 +8,4 @@ const iconsMap = {
 
 export const mapIcon = type => `${ICONS_ASSETS_PATH}/${iconsMap[type]}.svg`
 
-export const mapSize = size => null //TODO
+//export const mapSize = size => null //TODO

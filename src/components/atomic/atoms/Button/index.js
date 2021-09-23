@@ -4,17 +4,20 @@ import classNames from 'classnames'
 
 import './Button.css'
 
-const Button = ({ type, children }) => 
+const Button = ({ type, children, positionIcon }) => 
   <button className={classNames('button', {
-    [`type-${type}`]: type 
+    [`type-${type}`]: type,
+    [`position-icon-${positionIcon}`]: positionIcon
   })} >{ children }</button>
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
-    type: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
+    type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'fourth']),
+    positionIcon: PropTypes.oneOf(['left', 'right'])
 }
 
 Button.defaultProps = {
-    type: 'primary'
+    type: 'primary',
+    positionIcon: 'right'
 }
 export default Button;

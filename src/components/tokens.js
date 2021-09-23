@@ -2,7 +2,8 @@ const choices = {
     colors: {
       brand: {
         blue: '#1890FF',
-        mediumBlue: '#146FC3'
+        mediumBlue: '#146FC3',
+        mediumBlack: '#52575D'
       },
   
       transparent: 'transparent',
@@ -259,7 +260,8 @@ const choices = {
 
 const decisions = {
     colors: {
-      primary: choices.colors.brand.blue
+      primary: choices.colors.brand.blue,
+      textLight: choices.colors.white, 
     }
 }
 

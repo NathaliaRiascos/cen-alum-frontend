@@ -1,6 +1,7 @@
 :root {
 --colors-brand-blue: #1890FF;
-    --colors-brand-medium-blue: #146FC3;;
+    --colors-brand-medium-blue: #146FC3;
+    --colors-brand-medium-black: #52575D;;
     --colors-transparent: transparent;
     --colors-black: #000;
     --colors-white: #fff;
@@ -234,5 +235,6 @@
     --z-index-auto: auto;;
     
       
-    --colors-primary: #1890FF;;
+    --colors-primary: #1890FF;
+    --colors-text-light: #fff;;
 }
