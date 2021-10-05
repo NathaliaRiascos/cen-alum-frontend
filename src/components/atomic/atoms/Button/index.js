@@ -12,7 +12,7 @@ const Button = ({ type, children, positionIcon }) =>
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
-    type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'fourth']),
+    type: PropTypes.oneOf(['primary', 'secondary', 'enlace', 'item']),
     positionIcon: PropTypes.oneOf(['left', 'right'])
 }
 

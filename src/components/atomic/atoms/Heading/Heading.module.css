@@ -1,0 +1,15 @@
+.heading {
+    font-family: var(--font-family-quicksand-0);
+    font-style: normal;
+    line-height: 27px;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    color:  var(--colors-text-dark);
+}
+.type-h1 {
+    font-size: var(--heading-font-size-h1);
+}
+
+.type-h2 {
+    font-size: var(--heading-font-size-h2);
+}

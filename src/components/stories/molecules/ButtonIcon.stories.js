@@ -5,5 +5,5 @@ export default {
     component: ButtonIcon
 }
 
-export const Primary = () => <ButtonIcon type='fourth'icon='more'>Button icon</ButtonIcon>
+export const Primary = () => <ButtonIcon type='item'icon='more'>Button icon</ButtonIcon>
 Primary.storyName = 'Primary'
