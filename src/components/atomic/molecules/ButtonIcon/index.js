@@ -11,10 +11,11 @@ const ButtonIcon = ({ children, type, icon, positionIcon }) => (
   </Button>
 )
 
-ButtonIcon.protoTypes = {
+ButtonIcon.propTypes = {
   children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf(['primary', 'secondary', 'item']),
-  icon: PropTypes.string.isRequired
+  type: PropTypes.oneOf(['primary', 'secondary', 'enlace', 'item']),
+  icon: PropTypes.string.isRequired,
+  positionIcon: PropTypes.oneOf(['left', 'right']),
 }
 
 ButtonIcon.defaultProps = { 

@@ -16,7 +16,8 @@ const Button = ({ type, children, positionIcon, onClick }) =>
 Button.propTypes = {
     children: PropTypes.node.isRequired,
     type: PropTypes.oneOf(['primary', 'secondary', 'enlace', 'item']),
-    positionIcon: PropTypes.oneOf(['left', 'right'])
+    positionIcon: PropTypes.oneOf(['left', 'right']),
+    onClick: PropTypes.func
 }
 
 Button.defaultProps = {

@@ -24,7 +24,7 @@ const Steps = ({ steps }) => (
 );
 
 
-Steps.protoTypes = {
+Steps.propTypes = {
   steps: PropTypes.array
 }
 

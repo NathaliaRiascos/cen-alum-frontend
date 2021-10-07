@@ -20,7 +20,7 @@ const Heading = ({ children, typeHeading }) => (
 
 Heading.propTypes = {
     children: PropTypes.node.isRequired,
-    type: PropTypes.oneOf(['h1', 'h2']),
+    typeHeading: PropTypes.oneOf(['h1', 'h2']),
 }
 
 export default Heading
