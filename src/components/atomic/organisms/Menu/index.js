@@ -26,7 +26,7 @@ const Menu = () => {
       <ul>
         { 
           Items.map(item => (
-            <>
+            <div key={item.id}>
               { !item.page?
                 <>
                   <Item 
@@ -34,13 +34,7 @@ const Menu = () => {
                     onClick={() => handleClick(item)}
                     >
                     {item.text}
-                    {item.submenu ? (
-                        open[item.id] ? (
-                          <ExpandLess />
-                        ) : (
-                          <ExpandMore />
-                        )
-                      ) : null}
+                    {item.submenu ? (open[item.id] ? <ExpandLess />: <ExpandMore />) : null}
                   </Item>
                   {item.submenu ? (
                     <Collapse in={open[item.id]} timeout='auto' unmountOnExit>
@@ -56,7 +50,7 @@ const Menu = () => {
                     key={item.id}
                   ><Link href={item.page} className={link}>{item.text}</Link></Item>
               }
-            </>
+            </div>
           ))       
         }
       </ul>
