@@ -1,0 +1,158 @@
+:root {
+--colors-brand-light-blue: #1890FF;
+    --colors-brand-medium-blue: #146FC3;
+    --colors-brand-mediumblack-blue: #04192C;
+    --colors-brand-black-blue: #000C17;
+    --colors-brand-medium-black: #52575D;;
+    --colors-transparent: transparent;
+    --colors-black: #000;
+    --colors-white: #fff;
+      
+    --colors-gray-100: #FAFAFA;
+    --colors-gray-200: #F0F0F0;
+    --colors-gray-300: #D4D4D4;
+    --colors-gray-400: #cbd5e0;
+    --colors-gray-500: #a0aec0;
+    --colors-gray-600: #718096;
+    --colors-gray-700: #4a5568;
+    --colors-gray-800: #2d3748;
+    --colors-gray-900: #787878;;;
+      
+    --spacing-0: 0;
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-10: 2.5rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+    --spacing-20: 5rem;
+    --spacing-24: 6rem;
+    --spacing-32: 8rem;
+    --spacing-40: 10rem;
+    --spacing-48: 12rem;
+    --spacing-56: 14rem;
+    --spacing-64: 16rem;
+    --spacing-px: 1px;;
+      
+    --screens-xs: 420px;
+    --screens-sm: 640px;
+    --screens-md: 768px;
+    --screens-lg: 1024px;
+    --screens-xl: 1280px;
+      
+    --screens-max-xs: 419px;
+    --screens-max-sm: 639px;
+    --screens-max-md: 767px;
+    --screens-max-lg: 1023px;
+    --screens-max-xl: 1279px;;;
+      
+      
+    --font-family-serif-0: Roboto Slab;
+    --font-family-serif-1: "Times New Roman";
+    --font-family-serif-2: serif;;
+      
+    --font-family-sans-0: Apercu;
+    --font-family-sans-1: Arial;
+    --font-family-sans-2: sans-serif;;
+      
+    --font-family-mono-0: "Roboto Mono";
+    --font-family-mono-1: Consolas;
+    --font-family-mono-2: monospace;;
+      
+    --font-family-quicksand-0: "Quicksand";
+    --font-family-quicksand-1: sans-serif;;;
+      
+    --font-size-base: 16px;
+    --font-size-xs: 18px;
+    --font-size-sm: .875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.375rem;;
+      
+    --font-weight-hairline: 100;
+    --font-weight-thin: 200;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;;
+      
+    --line-height-none: 1;
+    --line-height-tight: 1.25;
+    --line-height-snug: 1.375;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.625;
+    --line-height-loose: 2;;
+      
+    --letter-spacing-tighter: -.05em;
+    --letter-spacing-tight: -.025em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: .025em;
+    --letter-spacing-wider: .05em;
+    --letter-spacing-widest: .1em;;
+      
+    --shadows-outline: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    --shadows-none: none;
+      
+    --shadows-down-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadows-down-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadows-down-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadows-down-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadows-down-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadows-down-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);;
+      
+    --shadows-up-sm: 0 -1px 3px 0 rgba(0, 0, 0, 0.1), 0 -1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadows-up-md: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadows-up-lg: 0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadows-up-xl: 0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadows-up-2xl: 0 -25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadows-up-inner: inset 0 -2px 4px 0 rgba(0, 0, 0, 0.06);;;
+      
+    --min-height-0: 0;
+    --min-height-full: 100%;
+    --min-height-screen: 100vh;;
+      
+    --min-width-0: 0;
+    --min-width-full: 100%;;
+      
+    --max-widht-full: 100%;;
+      
+    --opacity-0: 0;
+    --opacity-25: 0.25;
+    --opacity-50: 0.5;
+    --opacity-75: 0.75;
+    --opacity-100: 1;;
+      
+    --border-radius-none: 0;
+    --border-radius-sm: 0.125rem;
+    --border-radius-md: 0.25rem;
+    --border-radius-lg: 0.5rem;
+    --border-radius-full: 9999px;;
+      
+    --z-index-0: 0;
+    --z-index-10: 10;
+    --z-index-20: 20;
+    --z-index-30: 30;
+    --z-index-40: 40;
+    --z-index-50: 50;
+    --z-index-auto: auto;;
+    
+      
+    --colors-primary: #1890FF;
+    --colors-text-light: #fff;
+    --colors-text-dark: #52575D;;
+      
+      
+    --container-max-widht-full: 100%;;;
+      
+    --heading-font-size-h1: 1.375rem;
+    --heading-font-size-h2: 1.125rem;;
+      
+    --input-disable: #F0F0F0;;
+}

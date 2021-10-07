@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { container, contenido } from 'components/templates/Container.module.css'
+import Menu from 'components/atomic/organisms/Menu'
+import Router from 'router'
+    
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={container}>
+      <Menu />
+      <div className={contenido}>
+        <Router/>
+      </div>
     </div>
   );
 }
