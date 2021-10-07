@@ -5,7 +5,7 @@ import Icon from 'components/atomic/atoms/Icon';
 
 
 const ButtonIcon = ({ children, type, icon, positionIcon }) => (
-  <Button type={type} positionIcon={positionIcon}>
+  <Button className='center' type={type} positionIcon={positionIcon}>
     <Icon type={icon} />
     {children}
   </Button>
@@ -13,12 +13,12 @@ const ButtonIcon = ({ children, type, icon, positionIcon }) => (
 
 ButtonIcon.protoTypes = {
   children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'item']),
   icon: PropTypes.string.isRequired
 }
 
 ButtonIcon.defaultProps = { 
   type: 'secondary',
-  positionIcon: 'right'
+  positionIcon: 'left'
 }
 export default ButtonIcon

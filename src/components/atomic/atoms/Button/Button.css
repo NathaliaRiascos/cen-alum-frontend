@@ -5,12 +5,14 @@
     border-radius: 10px;
     cursor: pointer;
     padding: 14px 34px;
+    font-size: var(--font-size-base);
+    color: var(--colors-text-light);
+    font-family: var(--font-family-quicksand-0);
     transition: all 0.5s ease;
 }
 
 .type-primary {
     background-color: var(--colors-primary);
-    color: var(--colors-text-light);
 }
 
 .type-primary:hover {
@@ -31,9 +33,11 @@
 .type-enlace {
     background-color: var(--transparent);
     padding: var(--spacing-0);
+    margin: 0 var(--spacing-2);
     border-bottom: 1px solid var(--colors-primary);
     color: var(--colors-primary);
     border-radius: var(--border-radius-none);
+    width: fit-content;
 }
 
 .type-enlace:hover {
@@ -42,15 +46,18 @@
 }
 
 .type-item {
+    justify-content: space-between;
     background-color: var(--transparent);
-    margin-left: 20px;
-    margin-right: 20px;
+    color: var(--colors-text-dark);
+    padding: var(--spacing-4)  var(--spacing-5) ;
+    width: 100%;
+    max-width: 260px;
 }
 
 .position-icon-left {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 .position-icon-rigth {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }

@@ -1,10 +1,13 @@
 import React from 'react'
-//import Button from 'components/atomic/atoms/Button'
+
+import Button from 'components/atomic/atoms/Button'
 import style from './Item.module.css'
 
-const Item = ({ children }) => (
+const Item = ({ children, onClick }) => (
   <li className={style.li}>
-    { children }
+    <Button type='item' onClick={onClick}>
+      { children }
+    </Button>
   </li>
 )
 

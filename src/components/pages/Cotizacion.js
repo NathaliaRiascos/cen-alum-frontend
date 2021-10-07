@@ -1,11 +1,17 @@
 import React from 'react'
-import Form from 'components/atomic/organisms/Form/Client'
+import { Container } from 'components/templates/Cotizacion.module.css'
+//import DataClient from 'components/atomic/organisms/Steps/DataClient'
+//import Analisis from 'components/atomic/organisms/Steps/CreateAnalysis'
+import DataOf from 'components/atomic/organisms/DataOf'
+import Stepper from 'components/atomic/molecules/Stepper'
 
 const Cotizacion = () => (
-  <>
-    <h1>Hola mundo</h1>
-    <Form />
-  </>
+  <div className={Container}>
+    <Stepper />
+    {/*<Analisis />
+    <DataClient />*/}
+    <DataOf />
+  </div>
 )
 
 export default Cotizacion

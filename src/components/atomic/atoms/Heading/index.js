@@ -1,4 +1,5 @@
 import React from 'react'
+import './Heading.css'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 

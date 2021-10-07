@@ -1,8 +1,8 @@
 .heading {
     font-family: var(--font-family-quicksand-0);
+    display: inline-block;
     font-style: normal;
     line-height: 27px;
-    text-align: center;
     font-weight: var(--font-weight-bold);
     color:  var(--colors-text-dark);
 }

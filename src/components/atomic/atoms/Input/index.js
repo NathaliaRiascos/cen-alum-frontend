@@ -11,8 +11,9 @@ const Input = ({ label, value, type, handleChange, disable }) => (
     type={type}
     label={label}
     value={value}
+    margin='normal'
     disabled={disable}
-    onChange={e => handleChange(e.target.value)}
+    onChange={handleChange}
   />
 )
 
