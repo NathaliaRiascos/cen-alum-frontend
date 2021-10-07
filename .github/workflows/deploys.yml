@@ -18,8 +18,6 @@ jobs:
         node-version: 14
     - uses: wagoid/commitlint-github-action@v4
     - name: install Packages
-      run: npm ci
-    - name: testing
       run: npm run test
     - name: Build
       run: npm run build
