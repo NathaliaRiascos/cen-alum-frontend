@@ -3,18 +3,19 @@ import PropTypes from 'prop-types'
 import TextField from '@mui/material/TextField';
 import classNames from 'classnames'
 
-const TextArea = ({ label, value, handleChange, disable, size }) => (
+const TextArea = ({ label, value, name, handleChange, disable, size }) => (
   <TextField
     className={classNames('textArea', {
-        'type-disable': disable,
-        [`type-${size}`]: size
+      'type-disable': disable
     })}
     id='outlined-multiline-static'
     label={label}
+    name={name}
     multiline
     value={value}
     disabled={disable}
-    onChange={e => handleChange(e.target.value)}
+    rows={size}
+    onChange={handleChange}
   />
 )
 

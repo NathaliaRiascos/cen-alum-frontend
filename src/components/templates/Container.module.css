@@ -23,7 +23,13 @@
     padding: 50px;
 }
 
+.container_steps {
+    margin: var(--spacing-2);
+}
+
 .header {
     display: flex;
     width: inherit;
+    justify-content: space-between;
+    margin: var(--spacing-5) 0;
 }

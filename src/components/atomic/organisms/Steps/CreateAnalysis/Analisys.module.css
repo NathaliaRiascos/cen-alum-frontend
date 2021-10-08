@@ -1,0 +1,10 @@
+
+.buttons > * {
+    padding-left: 0;
+    max-width: 250px;
+}
+
+.buttons button:first-child {
+    margin-right: 15px;
+    max-width: 240px;
+}

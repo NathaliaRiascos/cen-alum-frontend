@@ -4,11 +4,12 @@ import TextField from '@mui/material/TextField'
 import classNames from 'classnames'
 import './Input.css'
 
-const Input = ({ label, value, type, handleChange, disable }) => (
+const Input = ({ label, name, value, type, handleChange, disable }) => (
   <TextField
     className={classNames('input', { 'type-disable': disable })}
     id='outlined-name'
     type={type}
+    name={name}
     label={label}
     value={value}
     margin='normal'

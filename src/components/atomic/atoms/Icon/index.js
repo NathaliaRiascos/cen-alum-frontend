@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { mapIcon } from './IconList';
 
 const Icon = ({ type }) => (
-  <div>
+  <>
     {mapIcon(type)}
-  </div>
+  </>
 )
 
 Icon.propTypes = {
