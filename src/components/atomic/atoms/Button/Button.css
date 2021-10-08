@@ -1,6 +1,7 @@
 .button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     border: 1px solid transparent;
     border-radius: 10px;
     cursor: pointer;
@@ -13,8 +14,12 @@
 
 .type-primary {
     background-color: var(--colors-primary);
-}
+}  
 
+.type-primary, .type-secondary {
+    max-width: 115px;
+    max-height: 45px;
+}
 .type-primary:hover {
     background-color: var(--colors-brand-medium-blue);
 }

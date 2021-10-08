@@ -2,9 +2,17 @@
 
 body {
   margin: 0;
-  font-family: var(--font-family-quicksand-0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--colors-gray-100);
+  font-size: var(--font-size-base) !important;
+  font-family: var(--font-family-quicksand-0) !important;
+  background-color: var(--colors-gray-100) !important;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}

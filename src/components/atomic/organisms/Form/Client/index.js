@@ -1,47 +1,123 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Input from 'components/atomic/atoms/Input'
-import { container } from 'components/templates/Form.module.css'
+import { AutoComplete } from 'antd';
+import PropTypes from 'prop-types'
+const { Option } = AutoComplete;
 
-const Formulario = () => {
+import { container } from 'components/templates/Form.module.css'
+import { ClientContext } from 'components/context/ClientContext'
+
+const Formulario = ({ boton, activarBoton }) => {
+
+  const { 
+    createClient,
+    searchIdClient,
+    coincidencias,
+    findClient,
+    editClient,
+  } = useContext(ClientContext)
+  
+
+  const [datoscliente, guardarCliente] = useState({
+    nombre: '',
+    identificacion: '',
+    direccion: '',
+    telefono: '',
+    email: ''
+  })
+
+    const {
+      nombre,
+      //identify,
+      direccion,
+      telefono,
+      email
+    } = datoscliente;
+  
+    useEffect(() => {
+
+      if (boton){
+        if (!editClient) createClient(datoscliente)
+        activarBoton()
+      }
+      if (editClient) guardarCliente(editClient)
+      
+    }, [boton, editClient])
 
   const handleChange = e => {
-    console.log(e.target.value)
+
+    guardarCliente({
+      ...datoscliente,
+      [e.target.name]: e.target.value
+    })
   }
+
+   
+  const onChange = value => {                
+    guardarCliente({
+      ...datoscliente,
+      identificacion: value
+    })
+  }
+
+
 
   return (
     <form className={container}>
       <Input
           label='Nombre'
-          value=''
+          name='nombre'
+          value={nombre}
           type='search'
           handleChange={handleChange}
       />
-      <Input
-          label='Identificación'
-          value=''
-          type='search'
-          handleChange={handleChange}
-      />
+
+      <AutoComplete
+        style={{
+          width: 200,
+        }}
+        onSearch={value => searchIdClient(value)}
+        onChange={onChange}
+        onSelect={v => findClient(v)}
+        placeholder='input here'
+      >
+        {coincidencias.map(item => (
+          <Option key={item} value={item}>
+            {item}
+          </Option>
+      ))}
+
+      </AutoComplete>
+
+      
       <Input 
           label='Télefono'
-          value=''
+          name='telefono'
+          value={telefono}
           type='text'
           handleChange={handleChange}
       />
       <Input 
           label='Dirección'
-          value=''
+          name='direccion'
+          value={direccion}
           type='text'
           handleChange={handleChange}
       />
       <Input 
           label='Correo'
-          value=''
+          name='email'
+          value={email}
           type='text'
           handleChange={handleChange}
       />
     </form>
   )
 }
-  
+ 
+Formulario.propTypes = {
+  boton: PropTypes.bool, 
+  activarBoton: PropTypes.func
+}
+
   export default Formulario

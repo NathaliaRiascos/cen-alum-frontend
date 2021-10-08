@@ -3,6 +3,7 @@
   margin: 0;
   color: var(--colors-text-dark);
   background-color: var(--colors-gray-100);
+  font-family: var(--font-family-quicksand-0);
 }
 
 .type-disable {

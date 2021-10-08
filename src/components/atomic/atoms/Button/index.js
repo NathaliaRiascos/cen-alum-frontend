@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import './Button.css'
 
-const Button = ({ type, children, positionIcon, onClick }) => 
+const Button = ({ type, children, positionIcon, onClick}) => 
   <button 
     className={classNames('button', {
       [`type-${type}`]: type,

@@ -1,5 +1,5 @@
 import React from 'react';
-//import './Table.css'
+import './Table.css'
 import 'antd/dist/antd.css';
 import { Table } from 'antd';
 
