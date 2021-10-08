@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { ClientService } from "services/client";
+import PropTypes from 'prop-types'
 
 export const ClientContext = createContext();
 
@@ -84,5 +85,10 @@ const ClientContextProvider = ({ children }) => {
     </ClientContext.Provider>
   );
 };
+
+ClientContextProvider.propTypes = {
+  children: PropTypes.node
+}
+
 
 export default ClientContextProvider;

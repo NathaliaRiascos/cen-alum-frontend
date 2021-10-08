@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Input from "components/atomic/atoms/Input"
+import PropTypes from 'prop-types'
 import { container } from "components/templates/Form.module.css"
 //import { MaterialContext } from 'components/context/MaterialContext'
 import TextArea from "components/atomic/atoms/TextArea"
@@ -64,5 +65,13 @@ const Formulario = ({ boton, activarBoton, analisis, setAnalisis }) => {
     </form>
   )
 }
+
+Formulario.propTypes = {
+  analisis: PropTypes.object,
+  setAnalisis: PropTypes.func,
+  boton: PropTypes.bool,
+  activarBoton: PropTypes.func
+}
+
 
 export default Formulario

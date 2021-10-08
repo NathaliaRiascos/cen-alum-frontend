@@ -5,6 +5,7 @@ import Head from 'components/atomic/atoms/Heading'
 import { contenido_header } from 'components/templates/Step.module.css'
 import Table from '../../Table'
 import Modal from '../../Modal'
+import PropTypes from 'prop-types'
 
 const Material = ({analisis, setAnalisis}) => {
 
@@ -37,4 +38,9 @@ const Material = ({analisis, setAnalisis}) => {
   )
 }
 
-export default Material
+Material.propTypes = {
+  analisis: PropTypes.object,
+  setAnalisis: PropTypes.func
+}
+
+export default Material 

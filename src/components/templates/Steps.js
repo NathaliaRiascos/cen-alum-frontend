@@ -1,4 +1,5 @@
 import { Layout } from 'antd';
+import PropTypes from 'prop-types'
 import {
     layout_header,
     layout_content,
@@ -14,5 +15,11 @@ const LayoutSteps = ({ header, content, footer }) => (
     {footer && <Footer className={layout_footer}>{footer}</Footer>} 
   </Layout>
 )
+
+LayoutSteps.propTypes = {
+  header: PropTypes.node,
+  content: PropTypes.node,
+  footer: PropTypes.node
+}
 
 export default LayoutSteps

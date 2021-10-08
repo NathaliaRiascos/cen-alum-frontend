@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AutoComplete } from 'antd';
+import PropTypes from 'prop-types'
 const { Option } = AutoComplete;
 
 import Input from 'components/atomic/atoms/Input'
@@ -119,4 +120,11 @@ const Formulario = ({boton, activarBoton, analisis, setAnalisis }) => {
   )
 }
   
+Formulario.propTypes = {
+  analisis: PropTypes.object,
+  setAnalisis: PropTypes.func,
+  boton: PropTypes.bool,
+  activarBoton: PropTypes.func
+}
+
   export default Formulario

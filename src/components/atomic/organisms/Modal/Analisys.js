@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import LayoutSteps from "components/templates/Steps.js"
 import { Modal } from "antd"
+import PropTypes from 'prop-types'
 import Button from "components/atomic/atoms/Button"
 import Material from "../Steps/MaterialsToUse"
 import Employee from "../Steps/AddEmployee"
 import Expenses from "../Steps/OtherExpenses"
 import Stepper from "components/atomic/molecules/Stepper"
 //import { AnalisysContext } from "components/context/AnalisysContext"
+
 const steps = [
   "Materiales a usar",
   "Agregar mano de obra",
@@ -77,6 +79,12 @@ const BasicModal = ({ active, toggle, modalFor }) => {
       />
     </Modal>
   )
+}
+
+BasicModal.propTypes = {
+  active: PropTypes.bool,
+  toggle: PropTypes.func,
+  modalFor: PropTypes.string,
 }
 
 export default BasicModal

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { MaterialService } from "services/material";
+import PropTypes from 'prop-types'
 
 export const MaterialContext = createContext();
 
@@ -61,5 +62,9 @@ const MaterialContextProvider = ({ children }) => {
     </MaterialContext.Provider>
   );
 };
+
+MaterialContextProvider.propTypes = {
+  children: PropTypes.node
+}
 
 export default MaterialContextProvider;

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Modal } from "antd"
+import PropTypes from 'prop-types'
 import Button from "components/atomic/atoms/Button"
 import FormCliente from "../Form/Client"
 import FormProducto from "../Form/Product"
@@ -68,5 +69,16 @@ const BasicModal = ({
     )}
   </Modal>
 )
+
+BasicModal.propTypes = {
+  analisis: PropTypes.object,
+  setAnalisis: PropTypes.func,
+  active: PropTypes.bool,
+  toggle: PropTypes.func,
+  modalFor: PropTypes.string,
+  boton: PropTypes.bool,
+  activarBoton: PropTypes.func
+}
+
 
 export default BasicModal

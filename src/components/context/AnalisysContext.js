@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { AnalisysService } from "services/analisys";
+import PropTypes from 'prop-types'
 
 export const AnalisysContext = createContext();
 
@@ -61,5 +62,9 @@ const AnalisysContextProvider = ({ children }) => {
     </AnalisysContext.Provider>
   );
 };
+
+AnalisysContextProvider.propTypes = {
+  children: PropTypes.node
+}
 
 export default AnalisysContextProvider;

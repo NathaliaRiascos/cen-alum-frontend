@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react"
 import { EmployeeService } from "services/employee"
+import PropTypes from 'prop-types'
 
 export const EmployeeContext = createContext()
 
@@ -70,6 +71,10 @@ employeeService
       {children}
     </EmployeeContext.Provider>
   )
+}
+
+EmployeeContextProvider.propTypes = {
+  children: PropTypes.node
 }
 
 export default EmployeeContextProvider

@@ -21,6 +21,8 @@ const Input = ({ label, name, value, type, handleChange, disable }) => (
 Input.propTypes = {
     label: PropTypes.string,
     type: PropTypes.oneOf(['text', 'number', 'search', 'password']),
+    name: PropTypes.string,
+    value: PropTypes.node,
     disable: PropTypes.bool,
     handleChange: PropTypes.func
 }

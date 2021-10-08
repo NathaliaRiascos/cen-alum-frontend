@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { ClientService } from "services/quotation";
+import PropTypes from 'prop-types'
 
 export const QuotationContext = createContext();
 
@@ -60,5 +61,9 @@ const QuotationContextProvider = ({ children }) => {
     </QuotationContext.Provider>
   );
 };
+
+QuotationContextProvider.propTypes = {
+  children: PropTypes.node
+}
 
 export default QuotationContextProvider;
