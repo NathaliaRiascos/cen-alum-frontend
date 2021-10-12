@@ -8,6 +8,13 @@ const AnalisysContextProvider = ({ children }) => {
   const analisysService = new AnalisysService();
 
   const [analisys, setAnalisys] = useState([]);
+  const [dataAnalisys, setDtaAnalisys] = useState({
+    responsables_del_trabajo: [],
+    otros_gastos: [],
+    materiales_usados: [],
+    observaciones: '',
+    total: 0
+  })
   
   const [editAnalisys, setEditAnalisys] = useState(null);
 
@@ -50,6 +57,8 @@ const AnalisysContextProvider = ({ children }) => {
     <AnalisysContext.Provider
       value={{
         createAnalisys,
+        dataAnalisys, 
+        setDtaAnalisys,
         deleteAnalisys,
         findAnalisys,
         updateAnalisys,

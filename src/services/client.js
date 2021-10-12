@@ -12,7 +12,7 @@ export class ClientService {
   }
 
   update = client => {
-    return axios.put(API_URL+'client/', client.id_cliente).then(res => res.data)
+    return axios.put(API_URL+`client/${client.id_cliente}`, client).then(res => res.data)
   }
 
   delete = id => {

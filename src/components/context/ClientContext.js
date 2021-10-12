@@ -16,7 +16,7 @@ const ClientContextProvider = ({ children }) => {
   }, []);
 
   const createClient = client => {
-    
+    /*
     const { nombre, identificacion, direccion, telefono, email } = client
 
     const cliente = {
@@ -26,9 +26,10 @@ const ClientContextProvider = ({ children }) => {
     phone: telefono,
     email: email
   }
-    
+    */
+   console.log(client)
     clientService
-      .create(cliente)
+      .create(client)
       .then(data => setClients([...clients, data]));
   };
 
@@ -40,11 +41,11 @@ const ClientContextProvider = ({ children }) => {
 
   const searchIdClient = id => {
     const clientes = clients.filter(cliente => cliente.identificacion.includes(id)) ;
-    setCoincidencias(clientes.map(c => c.identificacion));
+    setCoincidencias(clientes);
   };
 
   const findClient = id => {
-    const client = clients.find(p => p.identificacion === id);
+    const client = clients.find(p => p.id_cliente === id);
     
     setEditClient(client);
   };

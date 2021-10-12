@@ -1,25 +1,13 @@
-import { Layout } from 'antd';
-import PropTypes from 'prop-types'
-import {
-    layout_header,
-    layout_content,
-    layout_footer
-} from "components/templates/Step.module.css"
+import React from "react"
+import LayoutSteps from "components/layouts/LayoutSteps.js"
+import Stepper from "components/atomic/molecules/Stepper"
 
-const { Header, Footer, Content } = Layout;
-
-const LayoutSteps = ({ header, content, footer }) => (
-  <Layout>
-    <Header className={layout_header}>{header}</Header>
-    <Content className={layout_content}>{content}</Content>
-    {footer && <Footer className={layout_footer}>{footer}</Footer>} 
-  </Layout>
+const Steps = ({ steps, step, contents, modifiers }) => (
+  <LayoutSteps
+    header={<Stepper steps={steps} step={step} />}
+    content={contents[step]? <>{contents[step]}</>: <>{contents[step-1]}</>}
+    footer={modifiers}
+  />
 )
 
-LayoutSteps.propTypes = {
-  header: PropTypes.node,
-  content: PropTypes.node,
-  footer: PropTypes.node
-}
-
-export default LayoutSteps
+export default Steps

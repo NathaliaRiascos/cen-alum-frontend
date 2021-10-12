@@ -12,7 +12,7 @@ export class MaterialService {
   }
 
   update = material => {
-    return axios.put(API_URL+'material/', material.id_material).then(res => res.data)
+    return axios.put(API_URL+`material/${material.id_material}`, material).then(res => res.data)
   }
 
   delete = id => {

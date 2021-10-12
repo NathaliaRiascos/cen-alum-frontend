@@ -5,6 +5,8 @@ import ClienteProvider from "components/context/ClientContext"
 import EmployeeProvider from "components/context/EmployeeContext"
 import AnalisysProvider from "components/context/AnalisysContext"
 import MaterialProvider from "components/context/MaterialContext"
+import ProductProvider from "components/context/ProductContext"
+import DescriptionProvider from "components/context/DescriptionContext"
 
 function App() {
   return (
@@ -14,9 +16,13 @@ function App() {
         <ClienteProvider>
           <AnalisysProvider>
             <MaterialProvider>
-              <div className={contenido}>
-                <Router />
-              </div>
+              <ProductProvider>
+                <DescriptionProvider>
+                  <div className={contenido}>
+                    <Router />
+                  </div>
+                </DescriptionProvider>
+              </ProductProvider>
             </MaterialProvider>
           </AnalisysProvider>
         </ClienteProvider>

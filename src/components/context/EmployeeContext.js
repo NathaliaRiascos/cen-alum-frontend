@@ -8,24 +8,23 @@ const EmployeeContextProvider = ({ children }) => {
   const employeeService = new EmployeeService()
 
   const [employees, setEmployees] = useState([])
-  const [coincidencias, setCoincidencias ] = useState([])
+  const [workforce, setWorkforce] = useState([]);
   const [editEmployee, setEditEmployee] = useState(null)
 
   useEffect(() => {
-    employeeService.readAll().then(data => setEmployees(data))
+    updateEmployees()
   }, [])
 
-  const createEmployee =employee => {
+  const createEmployee = employee => {
+    console.log(employee)
     employeeService
       .create(employee)
       .then(data => setEmployees([...employees, data]))
   }
 
-  
-  const searchIdEmployee = id => {
-    const employee = employees.filter(cliente => cliente.identificacion.includes(id)) ;
-    setCoincidencias(employee.map(c => c.identificacion));
-  };
+  const updateEmployees = () => {
+    employeeService.readAll().then(data => setEmployees(data))
+  }
 
   const deleteEmployee = id => {
     employeeService
@@ -35,19 +34,18 @@ const EmployeeContextProvider = ({ children }) => {
 
 
   const findEmployee = id => {
-    const employee = employees.find(p => p.identificacion === id)
-
+    const employee = employees.find(p => p.id === id)
     setEditEmployee(employee)
   }
 
 
   const updateEmployee = employee => {
-employeeService
-      .updateemployee()
+    employeeService
+      .updateemployee() 
       .then(data =>
         setEmployees(
           employees.map(p =>
-            p.id_employee === employee.id_employee ? data : employee
+            p.id === employee.id ? data : employee
           )
         )
       )
@@ -60,12 +58,14 @@ employeeService
       value={{
         createEmployee,
         deleteEmployee,
-        coincidencias,
-        searchIdEmployee,
         findEmployee,
+        workforce,
+        updateEmployees,
+        setWorkforce,
         updateEmployee,
         setEditEmployee,
         editEmployee,
+        employees
       }}
     >
       {children}

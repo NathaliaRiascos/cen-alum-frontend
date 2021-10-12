@@ -1,123 +1,159 @@
-import React, { useState, useEffect, useContext } from 'react'
-import Input from 'components/atomic/atoms/Input'
-import { AutoComplete } from 'antd';
-import PropTypes from 'prop-types'
-const { Option } = AutoComplete;
+import React, { useState, useEffect, useContext } from "react"
+import Input from "components/atomic/atoms/Input"
 
-import { container } from 'components/templates/Form.module.css'
-import { ClientContext } from 'components/context/ClientContext'
+import PropTypes from "prop-types"
+import TextField from "@mui/material/TextField"
+//import {input} from "components/atomic/atoms/Input/Input.module.css"
 
-const Formulario = ({ boton, activarBoton }) => {
+import Autocomplete from "@mui/material/Autocomplete"
 
-  const { 
+import { container } from "components/templates/Form.module.css"
+import { ClientContext } from "components/context/ClientContext"
+
+const Formulario = ({ added, active, setAdd, closeModal}) => {
+  const {
     createClient,
-    searchIdClient,
-    coincidencias,
+    setEditClient,
+    clients,
     findClient,
     editClient,
   } = useContext(ClientContext)
-  
 
-  const [datoscliente, guardarCliente] = useState({
-    nombre: '',
-    identificacion: '',
-    direccion: '',
-    telefono: '',
-    email: ''
-  })
+  const initialState = {
+    nombre: "",
+    identificacion: "",
+    direccion: "",
+    telefono: "",
+    email: "",
+  }
 
-    const {
-      nombre,
-      //identify,
-      direccion,
-      telefono,
-      email
-    } = datoscliente;
-  
-    useEffect(() => {
+  const [datoscliente, guardarCliente] = useState(initialState)
+  const [disable, setDisable] = useState(true)
 
-      if (boton){
-        if (!editClient) createClient(datoscliente)
-        activarBoton()
-      }
-      if (editClient) guardarCliente(editClient)
-      
-    }, [boton, editClient])
+  const { 
+    nombre, 
+    identificacion, 
+    direccion, 
+    telefono, 
+    email } = datoscliente
+
+  useEffect(() => {
+    if (active) {
+      setEditClient(null)
+      setDisable(false)
+      guardarCliente(initialState)
+      //createClient(datoscliente)
+      console.log(datoscliente, added)
+    } else if (editClient) {
+      guardarCliente(editClient)
+      setDisable(false)
+    }
+
+    if (added) {
+      createClient(datoscliente)
+      setAdd(false)
+      closeModal(false)
+    }
+  }, [added, active, editClient])
 
   const handleChange = e => {
-
     guardarCliente({
       ...datoscliente,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
+  
+  const onChange = value => {
+    if (!active) findClient(value.id_cliente)
+  }
 
-   
-  const onChange = value => {                
+  
+  const onInputNameChange = (e, value) => {
     guardarCliente({
       ...datoscliente,
-      identificacion: value
+      nombre: value,
     })
   }
+  
 
+  const onInputIdChange = (e, value) => {
+    guardarCliente({
+      ...datoscliente,
+      identificacion: value,
+    })
+  }
 
 
   return (
     <form className={container}>
+      <Autocomplete
+        id='custom-input-demo'
+        options={clients}
+        name='nombre'
+        inputValue={nombre}
+        onInputChange={(event, value) => onInputNameChange(event, value)}
+        onChange={(event, newValue) => onChange(newValue)}
+        freeSolo
+        sx={{ width: 223 }}
+        disableClearable
+        getOptionLabel={option => option.nombre}
+        renderInput={params => (
+          <TextField
+            {...params}
+            label='Nombre'
+          />
+        )}
+      />
+      <Autocomplete
+        id='custom-input-demo'
+        options={clients}
+        inputValue={identificacion}
+        name='identificacion'
+        freeSolo
+        disableClearable
+        sx={{ width: 223 }}
+        getOptionLabel={option => option.identificacion}
+        onChange={(event, newValue) => onChange(newValue)}
+        onInputChange={(event, value) => onInputIdChange(event, value)}
+        renderInput={params => (
+          <TextField
+            {...params}
+            label='Identificación'
+          />
+        )}
+      />
+
       <Input
-          label='Nombre'
-          name='nombre'
-          value={nombre}
-          type='search'
-          handleChange={handleChange}
+        label='Télefono'
+        name='telefono'
+        value={telefono}
+        disable={disable}
+        type='text'
+        handleChange={handleChange}
       />
-
-      <AutoComplete
-        style={{
-          width: 200,
-        }}
-        onSearch={value => searchIdClient(value)}
-        onChange={onChange}
-        onSelect={v => findClient(v)}
-        placeholder='input here'
-      >
-        {coincidencias.map(item => (
-          <Option key={item} value={item}>
-            {item}
-          </Option>
-      ))}
-
-      </AutoComplete>
-
-      
-      <Input 
-          label='Télefono'
-          name='telefono'
-          value={telefono}
-          type='text'
-          handleChange={handleChange}
+      <Input
+        label='Dirección'
+        name='direccion'
+        value={direccion}
+        disable={disable}
+        type='text'
+        handleChange={handleChange}
       />
-      <Input 
-          label='Dirección'
-          name='direccion'
-          value={direccion}
-          type='text'
-          handleChange={handleChange}
-      />
-      <Input 
-          label='Correo'
-          name='email'
-          value={email}
-          type='text'
-          handleChange={handleChange}
+      <Input
+        label='Correo'
+        name='email'
+        value={email}
+        disable={disable}
+        type='text'
+        handleChange={handleChange}
       />
     </form>
   )
 }
- 
+
 Formulario.propTypes = {
-  boton: PropTypes.bool, 
-  activarBoton: PropTypes.func
+  boton: PropTypes.bool,
+  activarBoton: PropTypes.func,
 }
 
-  export default Formulario
+export default Formulario

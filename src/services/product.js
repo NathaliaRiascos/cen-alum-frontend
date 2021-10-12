@@ -12,7 +12,7 @@ export class ProductService {
   }
 
   update = product => {
-    return axios.put(API_URL+'product/', product.id_producto).then(res => res.data)
+    return axios.put(API_URL+`product/${product.id_producto}`, product).then(res => res.data)
   }
 
   delete = id => {
