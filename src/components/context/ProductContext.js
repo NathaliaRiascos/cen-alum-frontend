@@ -45,7 +45,7 @@ const ProductContextProvider = ({ children }) => {
         setProducts(
           products.map(p => (p.id_product === product.id_product ? data : product))
         )
-      );
+      )
 
     setEditProduct(null);
   };

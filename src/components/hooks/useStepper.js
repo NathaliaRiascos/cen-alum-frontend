@@ -3,7 +3,7 @@ import Button from "components/atomic/atoms/Button"
 
 import { useCounter } from "components/hooks/useCounter"
 
-export const useStepper = (steps, contents, needFooter) => {
+export const useStepper = (steps, contents, needFooter, fnEnd) => {
   const totalSteps = steps.length
   const { value, handleDis, handleAdd } = useCounter(0, totalSteps)
 
@@ -35,7 +35,7 @@ export const useStepper = (steps, contents, needFooter) => {
         Siguiente
       </Button>
     ): 
-      <Button type='primary' onClick={handleAdd}>
+      <Button type='primary' onClick={fnEnd}>
         Guardar
       </Button>
   )

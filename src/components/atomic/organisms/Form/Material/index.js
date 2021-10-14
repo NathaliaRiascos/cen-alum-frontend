@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import Input from "components/atomic/atoms/Input"
+
+//import { v4 as uuidv4 } from 'uuid';
 import PropTypes from "prop-types"
 import { container } from "components/templates/Form.module.css"
 import { MaterialContext } from "components/context/MaterialContext"
@@ -11,16 +13,15 @@ import Autocomplete from "@mui/material/Autocomplete"
 const Formulario = ({ added, active, setAdd, closeModal}) => {
   const {
     setMaterialsUsed,
-    //createMaterial,
-    //updateMaterials,
+    createMaterial,
+    updateMaterials,
     materialsUsed,
-    //editMaterialUsed,
     findMaterial,
     materials,
+    updateMaterial,
     setEditMaterial,
     editMaterial,
     updateMaterialUsed,
-    //updateMaterial
   } = useContext(MaterialContext)
 
   const initialState = {
@@ -44,7 +45,7 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
   useEffect(() => {
     if (active) {
       
-
+      updateMaterials()
         if ( editMaterial) {
           setMaterial( editMaterial)
           setOtros(editMaterial)
@@ -55,18 +56,22 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
           if ( editMaterial) {
             datosMaterial.longitud = longitud
             datosMaterial.cantidad = cantidad
-            datosMaterial.total = editMaterial.precio * cantidad
-            updateMaterialUsed(datosMaterial)
+            
+            if (!editMaterial.key){
+              datosMaterial.total = total
+              datosMaterial.key = datosMaterial.id_material
+              setMaterialsUsed([...materialsUsed, datosMaterial])
+              updateMaterial(datosMaterial)
+            } else {             
+              datosMaterial.total = Number(editMaterial.precio) * cantidad
+              updateMaterialUsed(datosMaterial)
           }
-      
-          if (!editMaterial.key) {
-            datosMaterial.longitud = longitud
-            datosMaterial.cantidad = cantidad
-            datosMaterial.total = total
-            datosMaterial.key = datosMaterial.id_material
-            setMaterialsUsed([...materialsUsed, datosMaterial])
-          }
+        }
 
+          if (!editMaterial) {
+            createMaterial(datosMaterial, otrosData)
+          }
+         
           
           setMaterial(initialState)
           setOtros(initialOtrosData)
@@ -74,6 +79,7 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
           setAdd()
           closeModal(false)
         }
+        //console.log( location.pathname)
     }
   }, [added, active, editMaterial])
 

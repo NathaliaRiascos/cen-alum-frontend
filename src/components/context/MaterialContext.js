@@ -9,6 +9,7 @@ const MaterialContextProvider = ({ children }) => {
 
   const [materials, setMaterials] = useState([]);
   const [materialsUsed, setMaterialsUsed] = useState([]);
+  //const [ getIdMaterial, setIdMaterial] = useState(null)
   const [editMaterialUsed, setEditMaterialUsed] = useState(null)
   const [editMaterial, setEditMaterial] = useState(null);
 
@@ -20,18 +21,23 @@ const MaterialContextProvider = ({ children }) => {
     materialService.readAll().then(data => setMaterials(data));
   }
 
-  const createMaterial = material => {
-    const { referencia, descripcion, precio} = material
-    const mtl = {
-      reference: referencia,
-      description: descripcion,
-      price: precio
-    }
-
+  const createMaterial =  (material, otrosdatos) => {
+    const { longitud, cantidad, total} = otrosdatos
     materialService
-      .create(mtl)
-      .then(data => setMaterials([...materials, data]));
+      .create(material)
+        .then(data => {
+          if (otrosdatos) {
+              material.longitud = longitud
+              material.cantidad = cantidad
+              material.total = total
+              material.key = data.id
+              material.id_material = data.id
+              setMaterialsUsed([...materialsUsed, material])
+          }
+        })
   };
+
+ 
 
   const deleteMaterial = id => {
     materialService
@@ -60,10 +66,9 @@ const MaterialContextProvider = ({ children }) => {
     materialService
       .update(mtl)
       .then(data =>
-        console.log(data)
-        /*setMaterials(
+        setMaterials(
           materials.map(p => (p.id_material === mtl.id_material ? data : mtl))
-        )*/
+        )
       );
 
     console.log(mtl)
@@ -75,11 +80,9 @@ const MaterialContextProvider = ({ children }) => {
     setMaterialsUsed(
       materialsUsed.map(p => (p.key === material.key ? material: p))
     )
-    //updateMaterial(material)
-    console.log(material)
-    //setEditMaterial(null)
     updateMaterial(material)
   }
+
   const deleteMaterialsUsed = id => {
     setMaterialsUsed(materialsUsed.filter(p => p.key !== id))
   }
@@ -92,6 +95,7 @@ const MaterialContextProvider = ({ children }) => {
         deleteMaterial,
         findMaterial,
         updateMaterial,
+        //getIdMaterial,
         materialsUsed,
         editMaterialUsed,
         updateMaterialUsed,

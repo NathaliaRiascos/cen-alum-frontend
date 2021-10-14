@@ -16,7 +16,9 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
     employees,
     findEmployee,
     updateEmployees,
-    workforce, 
+    updateWorkforce,
+    workforce,
+    updateEmployee,
     setWorkforce,
     setEditEmployee,
     editEmployee,
@@ -30,14 +32,10 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
     email: "",
   }
 
-  const initialSalario = {
-    salarioEmpleado: 0
-  }
 
   const [datosempleado, guardarEmpleado] = useState(initialState)
-  const [salario, setSalario] = useState(initialSalario)
+  const [salario, setSalario] = useState(0)
 
-  const { salarioEmpleado } = salario
   const {
     nombre,
     cedula,
@@ -48,24 +46,35 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
 
   useEffect(() => {
     if (active) {
-      
-      updateEmployees()
+
+      updateEmployees() 
 
       if (editEmployee) {
         guardarEmpleado(editEmployee)
+        if (editEmployee.salario) setSalario(editEmployee.salario)
+        //console.log(editEmployee.salario)
       } 
 
       if (added && cedula) {
 
-        if (!editEmployee) createEmployee(datosempleado)
+        if ( editEmployee ) {
+          datosempleado.salario = salario
 
-        datosempleado.salario = salarioEmpleado
-        datosempleado['id'] = datosempleado['key']
-        
-        setWorkforce([...workforce, datosempleado])
-        console.log(datosempleado)
+          if (!editEmployee.key){
+            datosempleado.key = datosempleado.id
+            setWorkforce([...workforce, datosempleado])
+            updateEmployee(datosempleado)
+          } else {
+            console.log(datosempleado)
+            updateWorkforce(datosempleado)
+
+        }
+      }
+
+        if (!editEmployee) createEmployee(datosempleado, salario)
+       
         guardarEmpleado(initialState)
-        setSalario(initialSalario)
+        setSalario(0)
         setEditEmployee(null)
         setAdd()
         closeModal(false)
@@ -101,10 +110,7 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
   }
   
   const onSalario = e => {
-    setSalario({
-      ...salarioEmpleado,
-      [e.target.name]: e.target.value,
-    })
+    setSalario(e.target.value)
   }
   return (
     <form className={container}>
@@ -159,8 +165,8 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
       />
       <Input
         label='Salario'
-        name='salarioEmpleado'
-        value={salarioEmpleado}
+        name='salario'
+        value={salario}
         type='number'
         handleChange={onSalario}
       />

@@ -7,6 +7,7 @@ import AnalisysProvider from "components/context/AnalisysContext"
 import MaterialProvider from "components/context/MaterialContext"
 import ProductProvider from "components/context/ProductContext"
 import DescriptionProvider from "components/context/DescriptionContext"
+import ExpensesProvider from "components/context/OtherExpensesContext"
 
 function App() {
   return (
@@ -14,17 +15,19 @@ function App() {
       <Menu />
       <EmployeeProvider>
         <ClienteProvider>
-          <AnalisysProvider>
-            <MaterialProvider>
-              <ProductProvider>
-                <DescriptionProvider>
-                  <div className={contenido}>
-                    <Router />
-                  </div>
-                </DescriptionProvider>
-              </ProductProvider>
-            </MaterialProvider>
-          </AnalisysProvider>
+          <MaterialProvider>
+            <ProductProvider>
+              <DescriptionProvider>
+                <ExpensesProvider>
+                  <AnalisysProvider>
+                    <div className={contenido}>
+                      <Router />
+                    </div>
+                  </AnalisysProvider>
+                </ExpensesProvider>
+              </DescriptionProvider>
+            </ProductProvider>
+          </MaterialProvider>
         </ClienteProvider>
       </EmployeeProvider>
     </div>

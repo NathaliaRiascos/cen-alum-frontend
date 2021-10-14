@@ -5,8 +5,10 @@ import PropTypes from 'prop-types'
 import Employee from "../Steps/AddEmployee"
 import Expenses from "../Steps/OtherExpenses"
 import Material from "../Steps/MaterialsToUse"
+//import { useAnalisis } from "components/hooks/useAnalisis"
 
 import { useStepper } from "components/hooks/useStepper"
+
 
 const steps = [
   "Materiales a usar",
@@ -21,11 +23,12 @@ const contents = [
 ]
 const BasicModal = ({ active, toggle, modalFor }) => {
 
+  //const { cambiarValores } = useAnalisis() 
   const {
     ComponentSteps,
     BtnBack,
     BtnNext
-  } = useStepper(steps, contents)
+  } = useStepper(steps, contents, false)
 
   return (
     <Modal

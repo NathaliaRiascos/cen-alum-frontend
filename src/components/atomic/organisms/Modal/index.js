@@ -43,10 +43,10 @@ const BasicModal = ({
         />
       ) : modalFor === "empleado" ? (
         <FormEmpleado
-        added={boton}
-        active={active}
-        setAdd={setBoton}
-        closeModal={toggle}
+          added={boton}
+          active={active}
+          setAdd={setBoton}
+          closeModal={toggle}
         />
       ) : modalFor === "producto" ? (
         <FormProducto
@@ -64,7 +64,10 @@ const BasicModal = ({
         />
       ) : (
         <FormGasto
-          boton={boton}
+          added={boton}
+          active={active}
+          setAdd={setBoton}
+          closeModal={toggle}
         />
       )}
     </Modal>

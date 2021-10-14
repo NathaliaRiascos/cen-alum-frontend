@@ -3,8 +3,9 @@ import { API_URL } from "./constant";
 
 export class MaterialService {
 
-  create = material => {
-    return axios.post(API_URL+'material/', material).then(res => res.data)
+  create = async material => {
+    const resultado = await axios.post(API_URL+'material/', material).then(res => res.data)
+    return resultado
   }
 
   readAll = () => {

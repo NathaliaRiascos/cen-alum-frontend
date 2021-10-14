@@ -2,13 +2,15 @@ import React, { createContext, useState, useEffect } from "react";
 import { AnalisysService } from "services/analisys";
 import PropTypes from 'prop-types'
 
+
 export const AnalisysContext = createContext();
 
 const AnalisysContextProvider = ({ children }) => {
+
   const analisysService = new AnalisysService();
 
   const [analisys, setAnalisys] = useState([]);
-  const [dataAnalisys, setDtaAnalisys] = useState({
+  const [dataAnalisys, setDataAnalisys] = useState({
     responsables_del_trabajo: [],
     otros_gastos: [],
     materiales_usados: [],
@@ -22,11 +24,14 @@ const AnalisysContextProvider = ({ children }) => {
     analisysService.readAll().then(data => setAnalisys(data));
   }, []);
 
-  const createAnalisys = als => {
 
-    analisysService
+  const createAnalisys = () => {
+    console.log('soy', dataAnalisys)
+   /* analisysService
       .create(als)
-      .then(data => setAnalisys([...analisys, data]));
+      .then(data => console.log(data));
+
+    */
   };
 
   const deleteAnalisys = id => {
@@ -58,7 +63,7 @@ const AnalisysContextProvider = ({ children }) => {
       value={{
         createAnalisys,
         dataAnalisys, 
-        setDtaAnalisys,
+        setDataAnalisys,
         deleteAnalisys,
         findAnalisys,
         updateAnalisys,
