@@ -3,6 +3,7 @@ import Head from 'components/atomic/atoms/Heading'
 import { header } from 'components/templates/Container.module.css'
 import Modal from '../Modal'
 import Table from '../Table'
+import PropTypes from "prop-types"
 import ButtonIcon from 'components/atomic/molecules/ButtonIcon'
 
 const DataOf = ({name, columns, data}) => {
@@ -27,5 +28,12 @@ const DataOf = ({name, columns, data}) => {
     </div>
   )
 }
+
+DataOf.propTypes = {
+  name: PropTypes.string,
+  columns: PropTypes.array,
+  data: PropTypes.array
+}
+
 
 export default DataOf

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react"
 
 import TextField from "@mui/material/TextField"
 import PropTypes from "prop-types"
-//const { Option } = AutoComplete
 
 import Input from "components/atomic/atoms/Input"
 import { container } from "components/templates/Form.module.css"
@@ -175,10 +174,10 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
 }
 
 Formulario.propTypes = {
-  analisis: PropTypes.object,
-  setAnalisis: PropTypes.func,
-  boton: PropTypes.bool,
-  activarBoton: PropTypes.func,
+  active: PropTypes.bool,
+  added: PropTypes.bool.isRequired,
+  setAdd: PropTypes.func,
+  closeModal: PropTypes.func 
 }
 
 export default Formulario
