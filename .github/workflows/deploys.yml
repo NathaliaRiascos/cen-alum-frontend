@@ -18,7 +18,7 @@ jobs:
         node-version: 14
     - uses: wagoid/commitlint-github-action@v4
     - name: install Packages
-      run: npm run test
+      run: npm ci
     - name: Build
       run: npm run build
     - name: deploy to gh-pages

@@ -1,0 +1,1 @@
+export const API_URL = 'https://cenalumv2.herokuapp.com/api/'

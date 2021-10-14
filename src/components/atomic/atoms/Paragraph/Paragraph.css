@@ -1,0 +1,6 @@
+
+.text {
+    font-size: var(--font-size-base);
+    color: var(--colors-text-dark);
+    font-family: var(--font-family-quicksand-0);
+}

@@ -1,0 +1,30 @@
+.textArea{
+  color: var(--colors-text-dark);
+  width: 223px;
+}
+
+.type-disable {
+  background-color: var(--input-disable)
+}
+/*
+.type-small {
+  width: 250px;
+  height: 136px;
+}
+
+.type-wider {
+  width: 573px;
+  height: 117px;
+}
+
+.type-medium {
+  width: 561px;
+  height: 275px;
+}
+
+.type-big {
+  width: 972px;
+  height: 192px;
+}
+
+*/
