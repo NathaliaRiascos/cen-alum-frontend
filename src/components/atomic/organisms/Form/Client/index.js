@@ -3,7 +3,6 @@ import Input from "components/atomic/atoms/Input"
 
 import PropTypes from "prop-types"
 import TextField from "@mui/material/TextField"
-//import {input} from "components/atomic/atoms/Input/Input.module.css"
 
 import Autocomplete from "@mui/material/Autocomplete"
 
@@ -42,8 +41,6 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
       setEditClient(null)
       setDisable(false)
       guardarCliente(initialState)
-      //createClient(datoscliente)
-      console.log(datoscliente, added)
     } else if (editClient) {
       guardarCliente(editClient)
       setDisable(false)
@@ -152,8 +149,11 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
 }
 
 Formulario.propTypes = {
-  boton: PropTypes.bool,
-  activarBoton: PropTypes.func,
+  active: PropTypes.bool,
+  added: PropTypes.bool.isRequired,
+  setAdd: PropTypes.func,
+  closeModal: PropTypes.func 
 }
+
 
 export default Formulario

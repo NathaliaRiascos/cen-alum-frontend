@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from "prop-types"
+
 import Input from 'components/atomic/atoms/Input'
 import TextArea from 'components/atomic/atoms/TextArea'
+
 import { container } from 'components/templates/Form.module.css'
 import { ExpensesContext } from 'components/context/OtherExpensesContext'
 
@@ -74,4 +77,11 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
   )
 }
   
-  export default Formulario
+Formulario.propTypes = {
+  active: PropTypes.bool,
+  added: PropTypes.bool.isRequired,
+  setAdd: PropTypes.func,
+  closeModal: PropTypes.func 
+}
+
+export default Formulario

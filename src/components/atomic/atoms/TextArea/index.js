@@ -24,6 +24,7 @@ TextArea.propTypes = {
     type: PropTypes.oneOf(['text', 'number']),
     disable: PropTypes.bool,
     name: PropTypes.string,
+    size: PropTypes.number,
     value: PropTypes.node,
     handleChange: PropTypes.func
   
@@ -32,7 +33,6 @@ TextArea.propTypes = {
 TextArea.defaultProps = {
     type: 'text',
     label: 'text',
-    size: 'small',
     disable: false
 }
 
