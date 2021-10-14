@@ -3,6 +3,7 @@ import './Table.css'
 import 'antd/dist/antd.css';
 import { Table } from 'antd';
 
+/*
 const columns = [
   {
     title: 'Name',
@@ -55,17 +56,14 @@ const rowSelection = {
     name: record.name,
   }),
 };
+*/
 
-
-const Tabla = () => (
+const Tabla = ({data, columns}) => (
   <Table
     className='tabla'
-    rowSelection={{
-    type: 'checkbox',
-      ...rowSelection,
-    }}
-      columns={columns}
-      dataSource={data}
+    rowKey={item => item.key}
+    dataSource={data} 
+    columns={columns}
   />
 );
 

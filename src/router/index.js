@@ -4,7 +4,7 @@ import Home from 'components/pages/Home'
 
 const Router = () => (
   <Switch>
-    <Route path='/' ><Home /></Route>
+    <Route path='/cen-alum-frontend' ><Home /></Route>
     <Route path='/crear-cotizacion' >
       <Cotizacion />
     </Route>

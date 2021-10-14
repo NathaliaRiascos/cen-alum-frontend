@@ -10,15 +10,10 @@ import { contenido } from 'components/templates/Step.module.css'
 
 const DataClient = () => {
 
-  const [boton, setBoton] = useState(false)
 
   const [active, setActive] = useState(false)
   const toggle = () => {
     setActive(!active)
-  }
-
-  const activarBoton = () => {
-    setBoton(!boton)
   }
 
   return (
@@ -29,18 +24,13 @@ const DataClient = () => {
           ¿El cliente ya se encuentra registrado? 
           <Button type='enlace' onClick={toggle}>Click aquí</Button>
         </Paragraph>
-        <Form 
-          boton={boton}
-          activarBoton={activarBoton}
+        <Form
         />
-
       </div>
       <Modal 
         active={active}
         toggle={toggle}
         modalFor='cliente'
-        boton={boton}
-        activarBoton={activarBoton}
       />
     </>
   )

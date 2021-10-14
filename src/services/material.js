@@ -3,8 +3,9 @@ import { API_URL } from "./constant";
 
 export class MaterialService {
 
-  create = material => {
-    return axios.post(API_URL+'material/', material).then(res => res.data)
+  create = async material => {
+    const resultado = await axios.post(API_URL+'material/', material).then(res => res.data)
+    return resultado
   }
 
   readAll = () => {
@@ -12,7 +13,7 @@ export class MaterialService {
   }
 
   update = material => {
-    return axios.put(API_URL+'material/', material.id_material).then(res => res.data)
+    return axios.put(API_URL+`material/${material.id_material}`, material).then(res => res.data)
   }
 
   delete = id => {

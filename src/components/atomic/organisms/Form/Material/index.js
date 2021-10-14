@@ -1,59 +1,155 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from "react"
 import Input from "components/atomic/atoms/Input"
-import PropTypes from 'prop-types'
+
+//import { v4 as uuidv4 } from 'uuid';
+import PropTypes from "prop-types"
 import { container } from "components/templates/Form.module.css"
-//import { MaterialContext } from 'components/context/MaterialContext'
+import { MaterialContext } from "components/context/MaterialContext"
 import TextArea from "components/atomic/atoms/TextArea"
 
-const Formulario = ({ boton, activarBoton, analisis, setAnalisis }) => {
+import TextField from "@mui/material/TextField"
+import Autocomplete from "@mui/material/Autocomplete"
 
-  const [ datosMaterial, setMaterial ] = useState({
-    referencia: '',
-    descripcion: '',
-    precio: 0
-  })
+const Formulario = ({ added, active, setAdd, closeModal}) => {
+  const {
+    setMaterialsUsed,
+    createMaterial,
+    updateMaterials,
+    materialsUsed,
+    findMaterial,
+    materials,
+    updateMaterial,
+    setEditMaterial,
+    editMaterial,
+    updateMaterialUsed,
+  } = useContext(MaterialContext)
 
-  const {referencia, descripcion, precio } = datosMaterial
+  const initialState = {
+    referencia: "",
+    descripcion: "",
+    precio: 0,
+  }
+
+  const initialOtrosData = {
+    longitud: 0,
+    cantidad: 0,
+    total: 0
+  }
+
+  const [datosMaterial, setMaterial] = useState(initialState)
+  const [otrosData, setOtros] = useState(initialOtrosData)
+
+  const { referencia, descripcion, precio } = datosMaterial
+  const { longitud, cantidad, total} = otrosData
 
   useEffect(() => {
+    if (active) {
+      
+      updateMaterials()
+        if ( editMaterial) {
+          setMaterial( editMaterial)
+          setOtros(editMaterial)
+        }
 
-    if (boton){
-      setAnalisis({
-        ...analisis,
-        materiales: datosMaterial
-      })
+        if (added && referencia) {
+          
+          if ( editMaterial) {
+            datosMaterial.longitud = longitud
+            datosMaterial.cantidad = cantidad
+            
+            if (!editMaterial.key){
+              datosMaterial.total = total
+              datosMaterial.key = datosMaterial.id_material
+              setMaterialsUsed([...materialsUsed, datosMaterial])
+              updateMaterial(datosMaterial)
+            } else {             
+              datosMaterial.total = Number(editMaterial.precio) * cantidad
+              updateMaterialUsed(datosMaterial)
+          }
+        }
 
-      activarBoton()
+          if (!editMaterial) {
+            createMaterial(datosMaterial, otrosData)
+          }
+         
+          
+          setMaterial(initialState)
+          setOtros(initialOtrosData)
+          setEditMaterial(null)
+          setAdd()
+          closeModal(false)
+        }
+        //console.log( location.pathname)
     }
-   
-  }, [boton])
+  }, [added, active, editMaterial])
 
   const handleChange = e => {
     setMaterial({
       ...datosMaterial,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
 
+  const onChange = value => {
+    findMaterial(value.id_material)
+  }
 
- 
+  const onInputRefChange = (e, value) => {
+    setMaterial({
+      ...datosMaterial,
+      referencia: value,
+    })
+  }
+
+  const handleChangeOtros = e => {
+    const valor = precio * e.target.value
+    setOtros({
+      ...otrosData,
+      [e.target.name]: e.target.value,
+      total: valor,
+    })
+  }
+  
   return (
     <form className={container}>
-      <Input
-        label='Referencia'
+      <Autocomplete
+        id='custom-input-demo'
+        options={materials}
         name='referencia'
-        value={referencia}
-        type='search'
-        handleChange={handleChange}
+        inputValue={referencia}
+        onInputChange={(event, value) => onInputRefChange(event, value)}
+        onChange={(event, newValue) => onChange(newValue)}
+        freeSolo
+        sx={{ width: 223 }}
+        disableClearable
+        getOptionLabel={option => option.referencia}
+        renderInput={params => <TextField {...params} label='Referencia' />}
       />
-      
+
       <Input
         label='Precio'
         name='precio'
         value={precio}
-        type='text'
+        type='number'
         handleChange={handleChange}
       />
+
+      <Input
+        label='longitud'
+        name='longitud'
+        value={longitud}
+        type='number'
+        handleChange={handleChangeOtros}
+      />
+
+      <Input
+        label='Cantidad'
+        name='cantidad'
+        value={cantidad}
+        type='number'
+        handleChange={handleChangeOtros}
+      />
+
       <TextArea
         label='Descripción'
         name='descripcion'
@@ -70,8 +166,7 @@ Formulario.propTypes = {
   analisis: PropTypes.object,
   setAnalisis: PropTypes.func,
   boton: PropTypes.bool,
-  activarBoton: PropTypes.func
+  activarBoton: PropTypes.func,
 }
-
 
 export default Formulario

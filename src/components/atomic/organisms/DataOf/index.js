@@ -5,7 +5,7 @@ import Modal from '../Modal'
 import Table from '../Table'
 import ButtonIcon from 'components/atomic/molecules/ButtonIcon'
 
-const DataOf = () => {
+const DataOf = ({name, columns, data}) => {
 
   const [active, setActive] = useState(false)
   const toggle = () => {
@@ -15,10 +15,10 @@ const DataOf = () => {
   return (
     <div style={{marginTop: '30px'}}>
       <div className={header}>
-        <Head>Datos de </Head>
+        <Head>Datos de {name} </Head>
         <ButtonIcon type='secondary' icon='add'  onClick={toggle}>Productos</ButtonIcon>
       </div>
-      <Table />
+      <Table data={data} columns={columns}/>
       <Modal 
         active={active} 
         toggle={toggle}

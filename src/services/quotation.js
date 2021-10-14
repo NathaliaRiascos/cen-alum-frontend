@@ -12,7 +12,7 @@ export class QuotationService {
   }
 
   update = quotation => {
-    return axios.put(API_URL+'cotizaciones/', quotation.id_cliente).then(res => res.data)
+    return axios.put(API_URL+`cotizaciones/${quotation.id_cliente}`, quotation).then(res => res.data)
   }
 
   delete = id => {

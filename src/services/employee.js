@@ -3,8 +3,8 @@ import { API_URL } from "./constant";
 
 export class EmployeeService {
 
-  create = empleado => {
-    return axios.post(API_URL+'empleado/', empleado).then(res => res.data)
+  create = async empleado => {
+    return await axios.post(API_URL+'empleado/', empleado).then(res => res.data)
   }
 
   readAll = () => {
@@ -12,7 +12,7 @@ export class EmployeeService {
   }
 
   update = empleado => {
-    return axios.put(API_URL+'empleado/', empleado.id_empleado).then(res => res.data)
+    return axios.put(API_URL+`empleado/${empleado.id}`, empleado).then(res => res.data)
   }
 
   delete = id => {

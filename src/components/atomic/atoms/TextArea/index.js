@@ -22,7 +22,6 @@ const TextArea = ({ label, value, name, handleChange, disable, size }) => (
 TextArea.propTypes = {
     label: PropTypes.string,
     type: PropTypes.oneOf(['text', 'number']),
-    size: PropTypes.oneOf(['small', 'wider', 'medium', 'big']),
     disable: PropTypes.bool,
     name: PropTypes.string,
     value: PropTypes.node,
