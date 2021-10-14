@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/cen-alum-frontend/static/css/main.4a12fdd8.chunk.css",
-    "main.js": "/cen-alum-frontend/static/js/main.61128b70.chunk.js",
-    "main.js.map": "/cen-alum-frontend/static/js/main.61128b70.chunk.js.map",
-    "runtime-main.js": "/cen-alum-frontend/static/js/runtime-main.606767a9.js",
-    "runtime-main.js.map": "/cen-alum-frontend/static/js/runtime-main.606767a9.js.map",
+    "main.css": "/cen-alum-frontend/static/css/main.1e9867a8.chunk.css",
+    "main.js": "/cen-alum-frontend/static/js/main.ed51f682.chunk.js",
+    "main.js.map": "/cen-alum-frontend/static/js/main.ed51f682.chunk.js.map",
+    "runtime-main.js": "/cen-alum-frontend/static/js/runtime-main.b34521c0.js",
+    "runtime-main.js.map": "/cen-alum-frontend/static/js/runtime-main.b34521c0.js.map",
     "static/css/2.786ae0dd.chunk.css": "/cen-alum-frontend/static/css/2.786ae0dd.chunk.css",
-    "static/js/2.9b14c3e1.chunk.js": "/cen-alum-frontend/static/js/2.9b14c3e1.chunk.js",
-    "static/js/2.9b14c3e1.chunk.js.map": "/cen-alum-frontend/static/js/2.9b14c3e1.chunk.js.map",
-    "static/js/3.3ceefcf6.chunk.js": "/cen-alum-frontend/static/js/3.3ceefcf6.chunk.js",
-    "static/js/3.3ceefcf6.chunk.js.map": "/cen-alum-frontend/static/js/3.3ceefcf6.chunk.js.map",
+    "static/js/2.1759d476.chunk.js": "/cen-alum-frontend/static/js/2.1759d476.chunk.js",
+    "static/js/2.1759d476.chunk.js.map": "/cen-alum-frontend/static/js/2.1759d476.chunk.js.map",
+    "static/js/3.91402f70.chunk.js": "/cen-alum-frontend/static/js/3.91402f70.chunk.js",
+    "static/js/3.91402f70.chunk.js.map": "/cen-alum-frontend/static/js/3.91402f70.chunk.js.map",
     "index.html": "/cen-alum-frontend/index.html",
     "static/css/2.786ae0dd.chunk.css.map": "/cen-alum-frontend/static/css/2.786ae0dd.chunk.css.map",
-    "static/css/main.4a12fdd8.chunk.css.map": "/cen-alum-frontend/static/css/main.4a12fdd8.chunk.css.map",
-    "static/js/2.9b14c3e1.chunk.js.LICENSE.txt": "/cen-alum-frontend/static/js/2.9b14c3e1.chunk.js.LICENSE.txt",
+    "static/css/main.1e9867a8.chunk.css.map": "/cen-alum-frontend/static/css/main.1e9867a8.chunk.css.map",
+    "static/js/2.1759d476.chunk.js.LICENSE.txt": "/cen-alum-frontend/static/js/2.1759d476.chunk.js.LICENSE.txt",
     "static/media/btn-edit.a4d67d7f.svg": "/cen-alum-frontend/static/media/btn-edit.a4d67d7f.svg",
     "static/media/btn-more.4f42a1d9.svg": "/cen-alum-frontend/static/media/btn-more.4f42a1d9.svg",
     "static/media/btn-view.cdc8aa8a.svg": "/cen-alum-frontend/static/media/btn-view.cdc8aa8a.svg",
@@ -21,10 +21,10 @@
     "static/media/principal.8a05c3f7.svg": "/cen-alum-frontend/static/media/principal.8a05c3f7.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.606767a9.js",
+    "static/js/runtime-main.b34521c0.js",
     "static/css/2.786ae0dd.chunk.css",
-    "static/js/2.9b14c3e1.chunk.js",
-    "static/css/main.4a12fdd8.chunk.css",
-    "static/js/main.61128b70.chunk.js"
+    "static/js/2.1759d476.chunk.js",
+    "static/css/main.1e9867a8.chunk.css",
+    "static/js/main.ed51f682.chunk.js"
   ]
 }
