@@ -17,7 +17,7 @@ const EmployeeContextProvider = ({ children }) => {
 
   const createEmployee = (employee, otrosdatos) => {
     const { salarioEmpleado } = otrosdatos
-    console.log(employee)
+
     employeeService.create(employee).then(data => {
       if (otrosdatos) {
         employee.salario = salarioEmpleado
@@ -32,9 +32,10 @@ const EmployeeContextProvider = ({ children }) => {
   }
 
   const deleteEmployee = id => {
+    const employee = employees.find(p => p.id === id)
     employeeService
-      .delete(id)
-      .then(() => setEmployees(employees.filter(p => p.id_employee !== id)))
+      .delete(employee)
+      .then(() => setEmployees(employees.filter(p => p.id !== id)))
   }
 
   const findEmployee = id => {

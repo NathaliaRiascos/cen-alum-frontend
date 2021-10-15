@@ -15,7 +15,7 @@ export class EmployeeService {
     return axios.put(API_URL+`empleado/${empleado.id}`, empleado).then(res => res.data)
   }
 
-  delete = id => {
-    return axios.delete(API_URL+'empleado/', id).then(res => res.data)
+  delete = empleado => {
+    return axios.delete(API_URL+`empleado/${empleado.id}`, empleado).then(res => res.data)
   }
 }
