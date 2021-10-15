@@ -37,6 +37,7 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
 
   const [datosMaterial, setMaterial] = useState(initialState)
   const [otrosData, setOtros] = useState(initialOtrosData)
+  const [hide, setHide] = useState(false)
 
   const { referencia, descripcion, precio } = datosMaterial
   const { longitud, cantidad, total} = otrosData
@@ -45,6 +46,11 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
     if (active) {
       
       updateMaterials()
+      
+      if (location.pathname === '/materiales') {
+        setHide(true)
+      }
+
         if ( editMaterial) {
           setMaterial( editMaterial)
           setOtros(editMaterial)
@@ -61,24 +67,28 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
               datosMaterial.key = datosMaterial.id_material
               setMaterialsUsed([...materialsUsed, datosMaterial])
               updateMaterial(datosMaterial)
+              updateMaterials()
             } else {             
               datosMaterial.total = Number(editMaterial.precio) * cantidad
-              updateMaterialUsed(datosMaterial)
+              location.pathname === '/materiales'? 
+              updateMaterialUsed(datosMaterial) 
+              : updateMaterial(datosMaterial)
+
           }
         }
 
           if (!editMaterial) {
             createMaterial(datosMaterial, otrosData)
           }
-         
-          
+        
           setMaterial(initialState)
           setOtros(initialOtrosData)
           setEditMaterial(null)
+          setHide(false)
           setAdd()
           closeModal(false)
         }
-        //console.log( location.pathname)
+        console.log( location.pathname)
     }
   }, [added, active, editMaterial])
 
@@ -136,6 +146,7 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
       <Input
         label='longitud'
         name='longitud'
+        hide={hide}
         value={longitud}
         type='number'
         handleChange={handleChangeOtros}
@@ -144,6 +155,7 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
       <Input
         label='Cantidad'
         name='cantidad'
+        hide={hide}
         value={cantidad}
         type='number'
         handleChange={handleChangeOtros}
