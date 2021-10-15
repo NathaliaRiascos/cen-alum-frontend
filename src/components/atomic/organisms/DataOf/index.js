@@ -6,7 +6,7 @@ import Table from '../Table'
 import PropTypes from "prop-types"
 import ButtonIcon from 'components/atomic/molecules/ButtonIcon'
 
-const DataOf = ({name, columns, data}) => {
+const DataOf = ({name, columns, data, modalFor, btnName}) => {
 
   const [active, setActive] = useState(false)
   const toggle = () => {
@@ -17,13 +17,13 @@ const DataOf = ({name, columns, data}) => {
     <div style={{marginTop: '30px'}}>
       <div className={header}>
         <Head>Datos de {name} </Head>
-        <ButtonIcon type='secondary' icon='add'  onClick={toggle}>Productos</ButtonIcon>
+        <ButtonIcon type='secondary' icon='add'  onClick={toggle}>{btnName}</ButtonIcon>
       </div>
       <Table data={data} columns={columns}/>
       <Modal 
         active={active} 
         toggle={toggle}
-        modalFor='producto'
+        modalFor={modalFor}
       />
     </div>
   )
@@ -31,6 +31,8 @@ const DataOf = ({name, columns, data}) => {
 
 DataOf.propTypes = {
   name: PropTypes.string,
+  modalFor: PropTypes.string,
+  btnName: PropTypes.string,
   columns: PropTypes.array,
   data: PropTypes.array
 }

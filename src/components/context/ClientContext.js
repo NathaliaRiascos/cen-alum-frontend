@@ -12,30 +12,26 @@ const ClientContextProvider = ({ children }) => {
   const [editClient, setEditClient] = useState(null);
 
   useEffect(() => {
-    clientService.readAll().then(data => setClients(data));
+    updatedClients()
   }, []);
 
-  const createClient = client => {
-    /*
-    const { nombre, identificacion, direccion, telefono, email } = client
 
-    const cliente = {
-     name: nombre,
-    identify: identificacion,
-    address: direccion,
-    phone: telefono,
-    email: email
+  const updatedClients = () => {
+    clientService.readAll().then(data => setClients(data));
   }
-    */
-   console.log(client)
+
+  const createClient = client => {
     clientService
       .create(client)
       .then(data => setClients([...clients, data]));
   };
 
   const deleteClient = id => {
+    
+    const cliente = clients.find(p => p.id_cliente === id)
+
     clientService
-      .delete(id)
+      .delete(cliente)
       .then(() => setClients(clients.filter(p => p.id_cliente !== id)));
   };
 
@@ -73,6 +69,7 @@ const ClientContextProvider = ({ children }) => {
         createClient,
         deleteClient,
         findClient,
+        updatedClients,
         searchIdClient,
         searchNameClient,
         updateClient,
