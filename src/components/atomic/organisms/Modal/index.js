@@ -39,6 +39,7 @@ const BasicModal = ({
         <FormCliente
           added={boton}
           active={active}
+          setAdd={setBoton}
           closeModal={toggle}
         />
       ) : modalFor === "empleado" ? (

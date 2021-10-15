@@ -34,6 +34,7 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
 
   const [datosempleado, guardarEmpleado] = useState(initialState)
   const [salario, setSalario] = useState(0)
+  const [hide, setHide] = useState(false)
 
   const {
     nombre,
@@ -48,10 +49,13 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
 
       updateEmployees() 
 
+      if (location.pathname === '/empleados') {
+        setHide(true)
+      }
+
       if (editEmployee) {
         guardarEmpleado(editEmployee)
         if (editEmployee.salario) setSalario(editEmployee.salario)
-        //console.log(editEmployee.salario)
       } 
 
       if (added && cedula) {
@@ -63,15 +67,19 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
             datosempleado.key = datosempleado.id
             setWorkforce([...workforce, datosempleado])
             updateEmployee(datosempleado)
+
           } else {
             console.log(datosempleado)
+            location.pathname === '/materiales'? 
             updateWorkforce(datosempleado)
+              : updateEmployee(datosempleado)
 
         }
       }
 
         if (!editEmployee) createEmployee(datosempleado, salario)
-       
+
+        updateEmployees()
         guardarEmpleado(initialState)
         setSalario(0)
         setEditEmployee(null)
@@ -165,6 +173,7 @@ const Formulario = ({ added, active, setAdd, closeModal }) => {
       <Input
         label='Salario'
         name='salario'
+        hide={hide}
         value={salario}
         type='number'
         handleChange={onSalario}

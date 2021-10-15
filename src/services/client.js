@@ -15,7 +15,7 @@ export class ClientService {
     return axios.put(API_URL+`client/${client.id_cliente}`, client).then(res => res.data)
   }
 
-  delete = id => {
-    return axios.delete(API_URL+'client/', id).then(res => res.data)
+  delete = client => {
+    return axios.delete(API_URL+`client/${client.id_cliente}`, client).then(res => res.data)
   }
 }

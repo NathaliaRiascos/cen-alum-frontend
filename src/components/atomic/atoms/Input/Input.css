@@ -10,6 +10,10 @@
   background-color: var(--input-disable)
 }
 
+.type-hide {
+  display: none !important;
+}
+
 .css-1y7nk27-MuiInputBase-input-MuiOutlinedInput-input {
   line-height: none;
 }

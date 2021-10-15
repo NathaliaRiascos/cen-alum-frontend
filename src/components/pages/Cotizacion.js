@@ -5,10 +5,6 @@ import Analisis from "components/atomic/organisms/Steps/CreateAnalysis"
 import DataQuotation from "components/atomic/organisms/Steps/DataQuotation"
 import FinalizeQuotation from "components/atomic/molecules/FinalizeQuotation"
 
-//import Steps from "components/templates/Steps"
-//import Button from "components/atomic/atoms/Button"
-
-//import { useCounter } from "components/hooks/useCounter"
 import { useStepper } from "components/hooks/useStepper"
 
 const Cotizacion = () => {

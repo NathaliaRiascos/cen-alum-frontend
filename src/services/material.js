@@ -16,7 +16,7 @@ export class MaterialService {
     return axios.put(API_URL+`material/${material.id_material}`, material).then(res => res.data)
   }
 
-  delete = id => {
-    return axios.delete(API_URL+'material/', id).then(res => res.data)
+  delete = material => {
+    return axios.delete(API_URL+`material/${material.id_material}`, material).then(res => res.data)
   }
 }

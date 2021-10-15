@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import LayoutSteps from "components/layouts/LayoutSteps.js"
+import LayoutSteps from "components/layouts/Layout.js"
 import Stepper from "components/atomic/molecules/Stepper"
 
 const Steps = ({ steps, step, contents, modifiers }) => (
