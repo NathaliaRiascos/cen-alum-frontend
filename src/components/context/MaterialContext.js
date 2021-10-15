@@ -36,22 +36,19 @@ const MaterialContextProvider = ({ children }) => {
           }
         })
   };
-
  
-
   const deleteMaterial = id => {
+    const material = materials.find(p => p.id_material === id);
     materialService
-      .delete(id)
+      .delete(material)
       .then(() => setMaterials(materials.filter(p => p.id_material !== id)));
   };
 
   const findMaterial = id => {
-    console.log(id)
     const material = materials.find(p => p.id_material === id);
     const materialUsed = materialsUsed.find(p => p.key === id);
     const mtl = materialUsed? materialUsed : material
     setEditMaterial(mtl);
-    //setEditMaterialUsed(materialUsed)
   };
 
   const updateMaterial = material => {
