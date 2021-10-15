@@ -14,6 +14,8 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
     createClient,
     setEditClient,
     clients,
+    updatedClients,
+    updateClient,
     findClient,
     editClient,
   } = useContext(ClientContext)
@@ -38,17 +40,25 @@ const Formulario = ({ added, active, setAdd, closeModal}) => {
 
   useEffect(() => {
     if (active) {
-      setEditClient(null)
+ 
       setDisable(false)
       guardarCliente(initialState)
-    } else if (editClient) {
+     if (editClient) {
+      datoscliente.nombre = editClient.nombre
       guardarCliente(editClient)
       setDisable(false)
+     }
     }
 
-    if (added) {
-      createClient(datoscliente)
+    if (added && identificacion) {
+      if (!editClient) {
+        createClient(datoscliente)
+      } else {
+        updateClient(datoscliente)
+      }
+      updatedClients()
       setAdd(false)
+      setEditClient(null)
       closeModal(false)
     }
   }, [added, active, editClient])
